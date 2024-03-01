@@ -22,6 +22,8 @@ cloudinary.config({
 // middlewares
 const corsOptions = {
   origin: "https://threads-lite.vercel.app",
+  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
 };
 
 app.use(cors(corsOptions));
