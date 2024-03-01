@@ -19,6 +19,12 @@ cloudinary.config({
 });
 
 // middlewares
+const corsOptions = {
+  origin: "https://threads-lite.vercel.app",
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json({ limit: "50mb" })); // to parse json in req.body
 app.use(express.urlencoded({ extended: true })); // to parse form data in req.body
 app.use(cookieParser()); // to parse cookies in req.cookies
