@@ -4,7 +4,9 @@ const verifyToken = (req, res, next) => {
   try {
     const token = req.cookies["jwt-token"];
     if (!token) {
-      return res.status(401).json({ message: "Unauthorized" });
+      return res
+        .status(401)
+        .json({ message: "no token, authorization denied" });
     }
     jwt.verify(token, process.env.JWT_KEY, (err, decoded) => {
       if (err) {
@@ -19,4 +21,4 @@ const verifyToken = (req, res, next) => {
   }
 };
 
-module.exports = verifyToken;  
+module.exports = verifyToken;
