@@ -9,7 +9,7 @@ router.get("/api/post/:id", postController.getPost);
 router.get("/api/userpost/:username", postController.getUserPost);
 
 // to get the feed post
-router.get("/api/feedpost", verifyToken, postController.feedPost);
+router.get("/api/feedpost", postController.feedPost);
 
 // create post route
 router.post("/api/post/create", verifyToken, postController.createPost);
