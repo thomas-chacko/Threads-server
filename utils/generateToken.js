@@ -4,7 +4,8 @@ const generateToken = (userId, res) => {
   const token = jwt.sign({ userId }, process.env.JWT_KEY);
   res.cookie("jwt-token", token, {
     httpOnly: true,
-    sameSite: "strict",
+    sameSite: "none", //
+    secure: true, 
   });
   return token;
 };

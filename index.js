@@ -21,13 +21,12 @@ cloudinary.config({
 
 // middlewares
 const corsOptions = {
-  origin: "https://threads-lite.vercel.app",
-  methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  origin: "https://threads-lite.vercel.app/auth",
+  methods: "GET,PUT,POST,DELETE",
   credentials: true,
 };
 
 app.use(cors(corsOptions));
-
 app.use(express.json({ limit: "50mb" })); // to parse json in req.body
 app.use(express.urlencoded({ extended: true })); // to parse form data in req.body
 app.use(cookieParser()); // to parse cookies in req.cookies
@@ -41,5 +40,5 @@ app.use(postRoutes);
 
 // listening to port
 app.listen(port, () => {
-  console.log(`Server started on http://localhost:${port}`);
+  console.log(`Server Started`);
 });
